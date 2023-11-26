@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Jeu des dés</title>
+
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!--Style personnalisé-->
+    <link rel="stylesheet" href="game.css">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body  class="container text-center">
+    <header>
+      <h1>Le jeu du dé</h1>
+      <div class="container-fluid border p-2 px-5">
+      
+        <p>Vous pénétrez dans la chaleureuse atmosphère de la taverne. Près du comptoir, deux personnages singuliers attirent votre regard, leurs tenues rappelant celles des chevaliers du royaume. Si jamais ils vous reconnaissent, cela pourrait être la fin de votre quête. Malheureusement, la nuit est déjà tombée, et faire demi-tour ne ferait qu'accentuer les soupçons.</p>
+        <p>Avec un courage renouvelé, vous vous approchez de l'aubergiste, lui demandant humblement le gîte pour la nuit. C'est à ce moment qu'un des deux chevaliers vous interpelle. Serait-ce la fin de votre anonymat?</p>
+        <em>"Hey, vagabond, venez donc partager ce délicieux jambon familial. Vous m'en direz des nouvelles."</em>
+        <p class="mt-1">Après de nombreuses chopes partagées, vous parvenez à établir un lien amical, la conversation sur "le gras, c'est la vie" ayant contribué à forger cette amitié naissante. C'est alors que le chevalier à la chevelure argentée propose une partie pour déterminer qui sera responsable de régler l'addition.</p>
+        <em>"Vous ne connaissez pas le jeu du Pélican ? "</em>
+        <p class="mt-1">Déconcerté, vous tournez votre regard vers le premier chevalier, son œil hagard vous scrutant. Pas d'inquiétude, les règles sont simples.</p>
+      
+      </div>
+</header>
+<div class="mt-5 mb-5">
+    <a href="gameXtreme.html">Aller au Niveau superieur</a>
+</div>
+
+    
+    <!-- Fenêtre modale nouvelle partie -->
+    <div id="modal" class="modal-partie">
+        <div class="modal-partie-content">
+            <span class="close closeModalButton" >&times;</span>
+            <p id="text-modal" class="text-center"></p>
+        
+            <button id="startNewGame">Commencer</button>
+            <button class="closeModalButton">Annuler</button>
+
+            <!-- Champs d'entrée pour les noms des joueurs -->
+            <form id="playerNames" class=" row-2 ">
+                
+                <div class="row justify-content-center">
+                    <p id="erreur"></p>
+                    <div class="col-md-6 d-flex flex-column justify-content-around ">
+                        <label for="player1Input">Joueur 1</label>
+                        <input type="text" class="text-center" id="player1Input" placeholder="Nom du Joueur 1" required>
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-around">
+                        <label for="player2Input">Joueur 2</label>
+                        <input class="text-center" type="text" id="player2Input" placeholder="Nom du Joueur 2" required>
+                    </div>
+                </div>
+            
+                <!-- Bouton "Valider les noms" -->
+                <button type="submit" id="validateNames">Valider les noms</button>
+            </form>
+        </div>
+    </div>
+  
+    <main class="container border plateau ">
+           <section class="row justify-content-center  ">
+                <!-- Règles-->
+                <button id="rules" type="button">Règles</button>
+                <!--Nouvelle partie-->
+                <div class="row d-flex justify-content-center">
+                    <!--Bouton-->
+                    <button id="newgame">Nouvelle partie</button>
+                </div>
+           </section>
+            
+           <div class="container-fluid mb-5">
+            <div class="row justify-content-center mt-1 ">
+                <div class="col-12 col-md-3 mb-3 mr-4 ">
+                    <!-- Contenu pour le joueur 1 -->
+                    <div class="col bg-player1 rounded d-flex flex-column justify-content-around mx-3">
+                        <h2 id="player1Name"></h2>
+                        <p class="text-center">joueur 1</p>
+                        <div id="resultat1">Score: <span id="score1" class="font-weight-bold">0</span></div>
+                        <div id="resultatTemp1">Score du tour: <span id="scoreTemp1" class="font-weight-bold">0</span></div>
+                    </div>
+                </div>
+        
+                <div class="col-12 col-md-3 mb-3 ">
+                    <!-- Contenu pour le dé -->
+                    <div class="d-flex flex-column justify-content-around mx-3">
+                        <p class="text-center" id="message"></p>
+                        <div class="dices text-center">
+                            <img id="dice" class="rollDice tada" src="./image/image.png" alt="un dé">
+                        </div>
+                        <div class="row justify-content-around">
+                            <p id="resultDice"></p>
+                            <div class="row-2 ">
+                                <button id="rollDice" class="rollDice">Lancer le dé</button>
+                                <button id="holdBtn">Récupérer</button>
+                            </div>
+                        
+                        </div>
+                   
+                    </div>
+                </div>
+        
+                <div class="col-12 col-md-3 mb-3 mr-4">
+                    <!-- Contenu pour le joueur 2 -->
+                    <div class="col bg-player1 rounded d-flex flex-column justify-content-around mx-3">
+                        <h2 id="player2Name"></h2>
+                        <p class="text-center">joueur 2</p>
+                        <div id="resultat2">Score: <span id="score2" class="font-weight-bold">0</span></div>
+                        <div id="resultatTemp2">Score du tour: <span id="scoreTemp2" class="font-weight-bold">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </main>
+
+   <!-- Fenêtre modale regle du jeu -->
+   <div class="modal modal-partie" id="ruleModal" tabindex="-1" aria-labelledby="ruleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-partie-content">
+            <div class="modal-header">
+                <h1 class="modal-title " id="ruleModalLabel">Règles du jeu</h1>
+                <button type="button" class="btn-close"  aria-label="Close rule">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Le jeu est simple : <br>
+                    Le jeu comprend 2 joueurs.<br>
+                    Chaque joueur possède un score tour temporaire  et un score global .<br>
+                    À chaque tour, le joueur lance un dé autant de fois qu'il le souhaite.<br>
+                    Lors de son tour, le joueur peut décider à tout moment de:<br>
+                    - Cliquer sur l'option “Recuperer”, qui permet d'envoyer les points du "tour" vers le
+                    global .
+                    Ce sera alors le tour de l'autre joueur.<br>
+                    - Lancer le dé. S'il obtient un 1, son score "tour" est perdu et c'est la fin de son
+                    tour.<br>
+                    Le premier joueur qui atteint les 100 points  gagne le jeu.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close"  >Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- le script JavaScript -->
+   
+    <script src="game.js"></script>
+    <!-- le script Boostrapt -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
