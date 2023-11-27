@@ -71,6 +71,7 @@ class Game {
         document.getElementById('scoreTemp2').textContent = this.player2.currentScore;
 
         document.getElementById('resultDice').textContent = '';
+        
     }
 
     endGame() {//Message de fin de jeu
@@ -203,6 +204,7 @@ class GameApp {
 
     showPlayerNames() {
         this.playerNames.style.display = 'block';
+        this.startNewGameButton.style.display = "none";
     }
 
     closePlayerNames() {
@@ -227,6 +229,7 @@ class GameApp {
             const messageElement = document.getElementById('message');
             messageElement.textContent = `C'est au tour de ${this.player1.name} de jouer!`;
         }
+        
     }
 
     rollDice() {
