@@ -108,6 +108,13 @@ class Game {
         this.isVariantDice = !this.isVariantDice;
         const diceTypeElement = document.getElementById('diceType');
         diceTypeElement.textContent = this.isVariantDice ? 'Dé Variant' : 'Dé Normal';
+    
+    // Mise à jour de l'image du dé en fonction du type choisi
+    const diceValue = this.isVariantDice ? 'V' : '';
+    const imageName = `image${diceValue}`; // Utilisation de la valeur par défaut 1
+
+    this.diceImageElement.setAttribute('src', `./image/${imageName}.png`);
+    this.diceImageElement.setAttribute('alt', `Dé ${diceValue}`);
     }
 }
 
