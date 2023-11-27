@@ -82,12 +82,9 @@ class Game {
 
     rollDice() {
         if (!this.isGameOver) {
-             // Vérifiez si useToggleDiceType est vrai avant d'appeler toggleDiceType
-             if (useToggleDiceType) {
-                this.toggleDiceType();
-            }
+          
             const dice = this.isVariantDice ? this.dice.rollVariantDice() : this.dice.rollNormalDice();
-    
+       
             if (dice !== 1) {
                 this.activePlayer.currentScore += dice;
             } else {
