@@ -161,7 +161,7 @@ class GameApp {
                     // Définir un délai d'une demi-seconde avant de permettre un nouveau clic
                     setTimeout(() => {
                         allowRoll = true;
-                    }, 1000);
+                    }, 500);
                 }
             });
            });

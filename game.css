@@ -1,9 +1,9 @@
+/***Style général***/
 body{
     font-family: 'MedievalSharp', cursive;
     background: url('./image/taverne.webp');
     margin: 0;
     padding: 0;
-    
 }
 a{
     border-radius: 25%;
@@ -31,6 +31,8 @@ input::placeholder {
     font-size: 1rem;
     color:rgba(75, 65, 50, 0.746);
 }
+
+/***Style des differents backgrounds***/
 .bg-player1{
     background-color: #d2b48c98;
 }
@@ -58,7 +60,7 @@ header{
     background-image: linear-gradient(rgba(255, 81, 0, 0.4), rgba(255, 255, 0, 0.4)),
     url('./image/tablefire.png');  
 }
-/* Style pour la fenêtre modale */
+/*** Style pour la fenêtre modale ***/
 .modal-partie {
     display: none;
     position: fixed;
@@ -81,13 +83,17 @@ header{
     font-family: 'Poppins', sans-serif;
 }
 
+.modal-dialog{
+    overflow-y: auto;/*permettre le defillement vertical*/
+    height: 90vh;
+}
 .close {
     float: right;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
 }
-
+/***Style bouton***/
 button {
     background: linear-gradient(45deg, #8B4513, #D2B48C);
     color: white;
@@ -101,12 +107,10 @@ button {
 button:hover {
     background: linear-gradient(45deg, #D2B48C, #8B4513);
 }
-#erreur{
-    color: red;
-    font-style: italic;
-}
+
+/***Animation de l'image Dé***/
 .tada {
-    transition: transform 0.5s ease; /* Animation de transition */
+    transition: transform 0.5s ease; 
 }
 
 .tada:hover {
