@@ -81,6 +81,10 @@ class Game {
 
     rollDice() {
         if (!this.isGameOver) {
+             // Vérifiez si useToggleDiceType est vrai avant d'appeler toggleDiceType
+             if (useToggleDiceType) {
+                this.toggleDiceType();
+            }
             const dice = this.isVariantDice ? this.dice.rollVariantDice() : this.dice.rollNormalDice();
     
             if (dice !== 1) {
@@ -236,5 +240,13 @@ class GameApp {
 
 // Initialisation de l'application
 document.addEventListener('DOMContentLoaded', () => {
+    // Récupération de l'élément à cacher
+   const elementHide = document.getElementById('hide');
+
+    // Vérification si l'élément existe
+    if (elementHide) {
+        // Cacher l'élément en définissant la propriété display sur "none"
+        elementHide.style.display = 'none';
+    }
     new GameApp();
 });
