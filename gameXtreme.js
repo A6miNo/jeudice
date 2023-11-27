@@ -111,7 +111,7 @@ class Game {
     
     // Mise à jour de l'image du dé en fonction du type choisi
     const diceValue = this.isVariantDice ? 'V' : '';
-    const imageName = `image${diceValue}`; // Utilisation de la valeur par défaut 1
+    const imageName = `image${diceValue}`; 
 
     this.diceImageElement.setAttribute('src', `./image/${imageName}.png`);
     this.diceImageElement.setAttribute('alt', `Dé ${diceValue}`);
@@ -189,6 +189,7 @@ class GameApp {
 
     openModal() {
         this.modal.style.display = 'block';
+        this.startNewGameButton.style.display = "inline-block";
         this.textModal.textContent = "Souhaitez-vous faire une autre partie ?";
     }
 
