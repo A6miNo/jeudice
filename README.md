@@ -18,12 +18,12 @@ Pour cela je crée 4 classes :
 
 1.	La classe Player (l’objet Joueur) 
 Cet objet contient des attributs et une méthode
-•	Attributs :
-•	name: Le nom du joueur.
-•	currentScore: Le score temporaire accumulé pendant un tour.
-•	globalScore: Le score total du joueur.
-•	Méthode :
-•	resetScores(): Réinitialise les scores du joueur.
+	•	Attributs :
+	•	name: Le nom du joueur.
+	•	currentScore: Le score temporaire accumulé pendant un tour.
+	•	globalScore: Le score total du joueur.
+	•	Méthode :
+	•	resetScores(): Réinitialise les scores du joueur.
 
 2.	La classe Dice (l’objet Dé)
 Cette classe offre les méthodes relatives aux catégories de Dé (normal ou variant) :
